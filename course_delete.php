@@ -11,9 +11,7 @@ global $DB;
         $categoryid = $argv[2];
         $courses = get_courses();
       
-      //  $courses = $DB->get_records('course',array('category'=>'6'));
-        //$roleassignment = $DB->get_records('role_assignments',array('roleid'=>'2'));
-		
+     	//Assign course creator role to the instructor who has course creator role in other categories.
 		$roleassignment = $DB->get_records_sql("select distinct userid,contextid from {role_assignments} where roleid=?",array("2"));
 		
 		
@@ -24,7 +22,7 @@ global $DB;
 						$record = new stdClass();
 						$record->contextid = $contextid;
 						$record->userid = $rolly->userid;
-						$record->roleid = '2';
+						$record->roleid = '2'; //Course Creator roleid
 						$record->timemodified = time();
 						$lastinsertid = $DB->insert_record('role_assignments', $record, false);
 			     	
@@ -32,10 +30,10 @@ global $DB;
 			}
 		
 	
-        
-          if(count($courses) > 1) {                                                                                                                              
+        //Delete all courses that are in the "TRASH" category
+          if(count($courses) > 1) {                                                                                                                                  
                 foreach ($courses as &$course) {
-                        if ($course->category == $categoryid ){
+                        if ($course->category ==  ){
                         echo $course->fullname."\n";
                         delete_course($course);
                         fix_course_sortorder(); 
