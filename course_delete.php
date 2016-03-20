@@ -1,20 +1,5 @@
 #!/usr/bin/php
-<?php
-// Place this script in /<moodle-root-path>/course/ directory and run it
-// * To delete one specific course with id:
-//   ~# php bulk_delete.php <course_id>
-//
-// * To delete all courses in the system:
-//   ~# php bulk_delete.php
-//
-// Tested Moodle version:
-// * Moodle 2.7 - Web Jun 4, 2014.
-// 
-// Authors: Trinh Nguyen
-// Email: dangtrinhnt[at]gmail[dot]com
 
-
-// to be able to run this file as command line script
 define('CLI_SCRIPT', true);
 
 require_once(dirname(__FILE__) . '/../config.php');
