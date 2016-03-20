@@ -33,9 +33,9 @@ global $DB;
 		
 	
         
-          if(count($courses) > 1) { // there is one default course of moodle                                                                                                                                   
+          if(count($courses) > 1) {                                                                                                                              
                 foreach ($courses as &$course) {
-                        if ($course->category ==  ){
+                        if ($course->category == $categoryid ){
                         echo $course->fullname."\n";
                         delete_course($course);
                         fix_course_sortorder(); 
