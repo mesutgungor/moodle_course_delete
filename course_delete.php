@@ -1,5 +1,5 @@
 #!/usr/bin/php
-
+<?php
 define('CLI_SCRIPT', true);
 
 require_once(dirname(__FILE__) . '/../config.php');
